@@ -104,7 +104,7 @@ public class NodePublisher implements NodeCameraView.NodeCameraViewCallback {
                     if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT) {
                         for (NodePublisher publisher : publishers) {
                             //麦克风静音
-                            publisher.jniAudioMuted(true);
+                            //publisher.jniAudioMuted(true);
                         }
                     } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
                         for (NodePublisher publisher : publishers) {
