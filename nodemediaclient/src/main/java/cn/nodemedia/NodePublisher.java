@@ -104,7 +104,7 @@ public class NodePublisher implements NodeCameraView.NodeCameraViewCallback {
                     if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT) {
                         for (NodePublisher publisher : publishers) {
                             //麦克风静音
-                            //publisher.jniAudioMuted(true);
+                            publisher.jniAudioMuted(true);
                         }
                     } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
                         for (NodePublisher publisher : publishers) {
@@ -114,10 +114,11 @@ public class NodePublisher implements NodeCameraView.NodeCameraViewCallback {
                     }
                 }
             };
+            
             AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-            am.requestAudioFocus(sAudioFocusChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
             
             am.setMode(AudioManager.MODE_IN_COMMUNICATION);
+            am.requestAudioFocus(sAudioFocusChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
 
         }
         publishers.add(this);
