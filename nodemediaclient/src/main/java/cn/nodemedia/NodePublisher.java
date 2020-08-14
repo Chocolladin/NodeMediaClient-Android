@@ -120,6 +120,7 @@ public class NodePublisher implements NodeCameraView.NodeCameraViewCallback {
             
             am.requestAudioFocus(sAudioFocusChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
             am.setMode(AudioManager.MODE_IN_COMMUNICATION);
+            audioManager.setSpeakerphoneOn(true);
         }
         publishers.add(this);
     }
